@@ -1,12 +1,13 @@
 import './App.css';
 import GibliBrowser from './browser/GibliBrowser';
+import { FilmsProvider } from './FilmsContext';
 
 function App() {
   return (
-    <div className="App">
+  <FilmsProvider>
       <GibliBrowser />
-    </div>
-  );
+  </FilmsProvider>
+  )
 }
 
 export default App;
