@@ -11,7 +11,7 @@ const GibliBrowser = () => {
     const [filmIndex, setFilmIndex] = useState(0);
 
     const getFilms = async () => {
-        const response = await axios.get('https://ghibliapi.herokuapp.com/films/')
+        const response = await axios.get('https://ghibliapi.herokuapp.com/films')
         setFilms(response.data);
     }
 
