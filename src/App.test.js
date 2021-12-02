@@ -20,3 +20,34 @@ test('loads and displays the first film title', async () => {
 
   expect(filmTitle).toBeInTheDocument();
 });
+
+test('handles server error: 500', async () => {
+  server.use(
+    rest.get('https://ghibliapi.herokuapp.com/films', (req, res, ctx) => {
+      return res(ctx.status(500))
+    }),
+  )
+
+  render(<App />);
+
+  const errorCode = await waitFor(() => screen.getByText('Request failed with status code 500'));
+
+  expect(errorCode).toBeInTheDocument();
+
+});
+
+test('handles server error: 418 tea pot', async () => {
+  server.use(
+    rest.get('https://ghibliapi.herokuapp.com/films', (req, res, ctx) => {
+      return res(ctx.status(418))
+    }),
+  )
+
+  render(<App />);
+
+  const errorCode = await waitFor(() => screen.getByText('Request failed with status code 418'));
+
+  expect(errorCode).toBeInTheDocument();
+
+  
+});
