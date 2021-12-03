@@ -86,9 +86,7 @@ html {
 }
 
 .film-card {
-  background-color: var(--calm-yellow);
-  padding: 2em;
-  border: 5px solid black;
+
 }
 
 .card__title {
@@ -105,14 +103,21 @@ html {
 .card-nav-button {
   font-size: 1.5em;
   font-family: var(--default-font);
+  color: white;
   background-color: #00000033;
-  text-shadow: 2px 2px white;
+  text-shadow: 2px 2px black;
   border: none;
   width: 20%
 }
 
+.card-tag-container {
+  background-color: #FFFFFFAA;
+  border-radius: 10px;
+  padding: 2em;
+}
+
 .card-nav-button:hover {
-  filter: brightness(0.8)
+  color:var(--calm-blue)
 }
 
 .hide {

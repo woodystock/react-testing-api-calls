@@ -24,7 +24,7 @@ const GibliBrowser = () => {
 
     useEffect(() => {
         getFilms();
-    })
+    }, [])
 
     return (
         <main>

@@ -30,7 +30,7 @@ test('handles server error: 500', async () => {
 
   render(<App />);
 
-  const errorCode = await waitFor(() => screen.getByText('Request failed with status code 500'));
+  const errorCode = await waitFor(() => screen.getByText("Oops… something went wrong, try again 🤕"));
 
   expect(errorCode).toBeInTheDocument();
 
@@ -45,7 +45,7 @@ test('handles server error: 418 tea pot', async () => {
 
   render(<App />);
 
-  const errorCode = await waitFor(() => screen.getByText('Request failed with status code 418'));
+  const errorCode = await waitFor(() => screen.getByText("418 I'm a tea pot 🫖, silly"));
 
   expect(errorCode).toBeInTheDocument();
 
