@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ErrorMessage from "../components/ErrorMessage";
-import FilmCard from "../components/FilmCard";
+import FilmCardViewer from "../components/FilmCardViewer";
 import Header from "../components/Header";
 import {useFilms} from "../FilmsContext"
 
@@ -9,7 +9,6 @@ import {useFilms} from "../FilmsContext"
 const GibliBrowser = () => {
 
     const [films, setFilms] = useFilms();
-    const [filmIndex, setFilmIndex] = useState(0);
     const [error, setError] = useState();
 
     const getFilms = async () => {
@@ -25,12 +24,14 @@ const GibliBrowser = () => {
 
     useEffect(() => {
         getFilms();
-    }, [])
+    })
 
     return (
         <main>
             <Header />
-            {error ? <ErrorMessage error={error} />: <FilmCard filmData={films[filmIndex]} />}
+            <div className="card-container">
+                {error ? <ErrorMessage error={error} />: <FilmCardViewer />}
+            </div>
         </main>
     )
 }
